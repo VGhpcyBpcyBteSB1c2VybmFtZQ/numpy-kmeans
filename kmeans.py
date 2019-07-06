@@ -15,6 +15,7 @@ labels = np.zeros((img.shape[0], img.shape[1]))
 
 # creating the initial centroids
 for i in range(0, k):
+    random.seed()
     centroids[i] = img[int(random.random() * img.shape[0]), int(random.random() * img.shape[1])]
 
 
@@ -23,7 +24,6 @@ for r in range(0, runs):
 
     # calculate the distances
     for i in range(0, k):
-        random.seed()
         distances[i] = np.linalg.norm(img - centroids[i], axis=2)
 
     # find the labels for each point
